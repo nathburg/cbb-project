@@ -1,6 +1,6 @@
 // imports
 // auth related (checkAuth, signOutUser)
-import { checkAuth, signOutUser, getCategories, createPost, getPost } from '../fetch-utils.js';
+import { checkAuth, signOutUser, getCategories, createPost, getPost, deletePost } from '../fetch-utils.js';
 import { renderCategoryOptions, renderPost } from '../render-utils.js';
 
 const postContainerEl = document.querySelector('#post-container');
@@ -9,11 +9,30 @@ const params = new URLSearchParams(window.location.search);
 
 loadData();
 
+
+const user = checkAuth();
+console.log(user);
+
+
+
+
 async function loadData() {
-    const details = await getPost(params.get('id'));
+    const postId = params.get('id');
+    console.log(postId);
+    const details = await getPost(postId);
     console.log(details);
+
     const detailsDiv = renderPost(details);
     postContainerEl.append(detailsDiv);
+
+    if (user.id === details.user_id) {
+        const deleteButtonEl = document.createElement('button');
+        deleteButtonEl.textContent = 'Delete Post';
+        deleteButtonEl.addEventListener = ('click', () => {
+            deletePost(postId);
+        });
+        postContainerEl.append(deleteButtonEl);
+    }
 }
 
 // const signOutLink = document.getElementById('sign-out-link');

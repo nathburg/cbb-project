@@ -61,3 +61,9 @@ export async function getPost(id) {
 export async function createPost(post) {
     return await client.from('posts').insert(post);
 }
+
+export async function deletePost(id) {
+
+    const response = await client.from('posts').delete().match({ id });
+    return checkError(response);
+}
