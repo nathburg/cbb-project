@@ -16,6 +16,9 @@ export function renderPosts(posts) {
     const fragment = document.createDocumentFragment();
 
     for (const post of posts) {
+        const linkEl = document.createElement('a');
+        linkEl.href = `/post?id=${}`;
+        
         const li = document.createElement('li');
         li.classList.add('post-it');
 
@@ -34,9 +37,11 @@ export function renderPosts(posts) {
         const contactEl = document.createElement('p');
         contactEl.textContent = post.contact;
 
+        linkEl.append(li);
+
         li.append(titleEl, categoryEl, descriptionEl, contactEl);
 
-        fragment.append(li);
+        fragment.append(linkEl);
     }
 
     return fragment;
