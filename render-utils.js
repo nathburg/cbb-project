@@ -53,18 +53,18 @@ export function renderPosts(posts) {
 export function renderPost(post) {
     const postEl = document.createElement('div');
     const titleEl = document.createElement('h1');
-    const categoryEl = document.createElement('div');
-    const dateEl = document.createElement('div');
+    const categoryEmojiEl = document.createElement('div');
+    const categoryNameEl = document.createElement('span');
     const descriptionEl = document.createElement('p');
     const contactEl = document.createElement('div');
 
     titleEl.textContent = post.title;
-    categoryEl.textContent = post.category;
-    dateEl.textContent = post.created_at;
+    categoryEmojiEl.textContent = post.category.emoji;
+    categoryNameEl.textContent = post.category.name;
     descriptionEl.textContent = post.description;
     contactEl.textContent = post.contact;
 
-    postEl.append(titleEl, categoryEl, dateEl, descriptionEl, contactEl);
+    postEl.append(titleEl, categoryEmojiEl, categoryNameEl, descriptionEl, contactEl);
 
     return postEl;
 }
