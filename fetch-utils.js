@@ -47,7 +47,15 @@ export async function getPosts() {
         *,
         category:categories(*)
     `);
-    return checkError(response);
+    return response.data;
+}
+
+export async function getPost(id) {
+    const response = await client.from('posts').select(`
+    *,
+    category:categories(*)
+    `).match({ id }).single();
+    return response.data;
 }
 
 export async function createPost(post) {
