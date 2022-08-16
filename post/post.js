@@ -1,7 +1,7 @@
 // imports
 // auth related (checkAuth, signOutUser)
-import { checkAuth, signOutUser, getCategories, createPost, getPost, deletePost } from '../fetch-utils.js';
-import { renderCategoryOptions, renderPost } from '../render-utils.js';
+import { checkAuth, getPost, deletePost } from '../fetch-utils.js';
+import { renderPost } from '../render-utils.js';
 
 const postContainerEl = document.querySelector('#post-container');
 
