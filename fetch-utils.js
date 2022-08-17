@@ -53,3 +53,4 @@ export async function getPosts() {
 export async function createPost(post) {
     return await client.from('posts').insert(post);
 }
+git 

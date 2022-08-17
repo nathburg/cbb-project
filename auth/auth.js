@@ -82,3 +82,5 @@ authForm.addEventListener('submit', async (e) => {
         location.replace(redirectUrl);
     }
 });
+
+
