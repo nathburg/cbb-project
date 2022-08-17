@@ -1,11 +1,14 @@
+
+
 // import services and utilities
-import { getUser, signInUser, signUpUser } from '../fetch-utils.js';
+import { getUser, signInUser, signUpUser, addUser } from '../fetch-utils.js';
 
 const authHeader = document.getElementById('auth-header');
 const authForm = document.getElementById('auth-form');
 const authButton = authForm.querySelector('button');
 const changeType = authForm.querySelector('a');
 const errorDisplay = authForm.querySelector('.error');
+
 
 // check the query params for a redirect Url (page before auth redirect)
 const params = new URLSearchParams(location.search);
@@ -78,8 +81,12 @@ authForm.addEventListener('submit', async (e) => {
         authButton.disabled = false;
         authButton.textContent = buttonText;
     } else {
+        if (authType === signUpType) {
+            const email = formData.get('email');
+            await addUser(email);
+        }
         // go back to wherever user came from
-        location.replace(redirectUrl);
+        // location.replace(redirectUrl);
     }
 });
 

@@ -1,5 +1,5 @@
-const SUPABASE_URL = '';
-const SUPABASE_KEY = '';
+const SUPABASE_URL = 'https://iiheuanoirgtlmgbnvou.supabase.co'
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlpaGV1YW5vaXJndGxtZ2Judm91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjA2MTA4MjAsImV4cCI6MTk3NjE4NjgyMH0.0nFD2sYSDNfeuHIBj-7JNMLMp8hUsGMk6J90sU5381w';
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* Auth related functions */
@@ -53,4 +53,12 @@ export async function getPosts() {
 export async function createPost(post) {
     return await client.from('posts').insert(post);
 }
-git 
+
+export async function addUser(email) {
+    const newUser = {
+        name: "User hasn't given name",
+        email: email,
+        bio: "User hasn't written bio"
+    };
+    await client.from('profiles').insert(newUser);
+}
