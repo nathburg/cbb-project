@@ -28,8 +28,11 @@ async function loadData() {
     if (user.id === details.user_id) {
         const deleteButtonEl = document.createElement('button');
         deleteButtonEl.textContent = 'Delete Post';
-        deleteButtonEl.addEventListener = ('click', () => {
-            deletePost(postId);
+        deleteButtonEl.addEventListener('click', async () => {
+            await deletePost(postId);
+            alert("Post deleted!");
+            location.href = '../';
+
         });
         postContainerEl.append(deleteButtonEl);
     }
