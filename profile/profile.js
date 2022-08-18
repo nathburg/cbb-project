@@ -1,16 +1,32 @@
-import { getUser, getProfile } from '../fetch-utils.js';
-import { renderProfile } from '../render-utils.js';
+import { getUser, getProfile, saveProfile } from '../fetch-utils.js';
+// import { renderProfile } from '../render-utils.js';
+
+const formEl = document.querySelector('#user');
+
+let userId = '';
 
 async function showUser() {
-    const userEl = document.querySelector('#user');
     const userNameEl = document.querySelector('[name = name]');
     const userBioEl = document.querySelector('[name = bio');
     const user = await getUser();
-    const userId = user.id;
+    userId = user.id;
     const profile = await getProfile(userId);
     userNameEl.value = profile.data.name;
     userBioEl.value = profile.data.bio;
-
 }
 
 showUser();
+
+
+formEl.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(formEl);
+    console.log(formData);
+    const profile = {
+        id: userId,
+        name: formData.get('name'),
+        bio: formData.get('bio')
+    };
+    saveProfile(profile);
+    alert('Profile saved.');
+});

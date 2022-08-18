@@ -72,3 +72,7 @@ export async function getProfile(id) {
     const newProfile = await client.from('profiles').select('*').match({ id }).single();
     return newProfile;
 }
+
+export async function saveProfile(profile) {
+    await client.from('profiles').upsert(profile);
+}
