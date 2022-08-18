@@ -11,16 +11,13 @@ loadData();
 
 
 const user = checkAuth();
-console.log(user);
 
 
 
 
 async function loadData() {
     const postId = params.get('id');
-    console.log(postId);
     const details = await getPost(postId);
-    console.log(details);
 
     const detailsDiv = renderPost(details);
     postContainerEl.append(detailsDiv);
@@ -30,7 +27,7 @@ async function loadData() {
         deleteButtonEl.textContent = 'Delete Post';
         deleteButtonEl.addEventListener('click', async () => {
             await deletePost(postId);
-            alert("Post deleted!");
+            alert('Post deleted!');
             location.href = '../';
 
         });
