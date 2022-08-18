@@ -67,3 +67,8 @@ export async function getProfiles() {
     const profiles = await client.from('profiles').select('*');
     return profiles.data;
 }
+
+export async function getProfile(id) {
+    const newProfile = await client.from('profiles').select('*').match({ id }).single();
+    return newProfile;
+}

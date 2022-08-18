@@ -2,7 +2,7 @@ const SUPABASE_URL = 'https://iiheuanoirgtlmgbnvou.supabase.co'
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlpaGV1YW5vaXJndGxtZ2Judm91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjA2MTA4MjAsImV4cCI6MTk3NjE4NjgyMH0.0nFD2sYSDNfeuHIBj-7JNMLMp8hUsGMk6J90sU5381w';
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-console.log(client.auth.currentUser.email);
+console.log(client.auth.currentUser.id);
 
 
 // importing other stuff, utility functions for:
