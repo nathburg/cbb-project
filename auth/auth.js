@@ -84,9 +84,10 @@ authForm.addEventListener('submit', async (e) => {
         if (authType === signUpType) {
             const email = formData.get('email');
             await addUser(email);
+        
         }
         // go back to wherever user came from
-        // location.replace(redirectUrl);
+        location.replace(redirectUrl);
     }
 });
 

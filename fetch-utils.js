@@ -62,3 +62,8 @@ export async function addUser(email) {
     };
     await client.from('profiles').insert(newUser);
 }
+
+export async function getProfiles() {
+    const profiles = await client.from('profiles').select('*');
+    return profiles.data;
+}
