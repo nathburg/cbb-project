@@ -9,8 +9,6 @@ async function showProfiles() {
         const newProfile = renderProfile(profile);
         profilesEl.append(newProfile);
     }
-
-    console.log(profiles);
 }
 
 showProfiles();

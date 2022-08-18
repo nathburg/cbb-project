@@ -21,7 +21,6 @@ showUser();
 formEl.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(formEl);
-    console.log(formData);
     const profile = {
         id: userId,
         name: formData.get('name'),
