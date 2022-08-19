@@ -82,6 +82,7 @@ export async function getProfile(id) {
 
 export async function saveProfile(profile) {
     await client.from('profiles').upsert(profile);
+}
 
 export async function deletePost(id) {
 

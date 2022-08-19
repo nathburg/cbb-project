@@ -65,6 +65,7 @@ export function renderProfile(profile) {
     profileEl.append(nameEl, emailEl, bioEl);
 
     return profileEl;
+}
 
 export function renderPost(post) {
     const postEl = document.createElement('div');
