@@ -49,3 +49,15 @@
     right: 4px;
     font-size: 1.5em;
 }
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    background-color: #ffc;
+    max-width: 500px;
+}
+
+.item {
+    margin: 5px
+}

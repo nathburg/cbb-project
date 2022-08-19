@@ -148,3 +148,10 @@ form button:disabled {
     min-height: 1em;
     color: red;
 }
+
+.post-container {
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+}
