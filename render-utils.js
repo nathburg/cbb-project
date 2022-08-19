@@ -48,6 +48,25 @@ export function renderPosts(posts) {
     return fragment;
 }
 
+export function renderProfile(profile) {
+    const profileEl = document.createElement('li');
+    const nameEl = document.createElement('div');
+    const emailEl = document.createElement('div');
+    const bioEl = document.createElement('p');
+
+    profileEl.classList.add('profile');
+    nameEl.classList.add('item');
+    emailEl.classList.add('item');
+    bioEl.classList.add('item');
+    nameEl.textContent = profile.name;
+    emailEl.textContent = profile.email;
+    bioEl.textContent = profile.bio;
+
+    profileEl.append(nameEl, emailEl, bioEl);
+
+    return profileEl;
+}
+
 export function renderPost(post) {
     const postEl = document.createElement('div');
     const titleEl = document.createElement('h1');

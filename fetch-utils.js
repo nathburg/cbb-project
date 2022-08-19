@@ -61,6 +61,28 @@ export async function getPost(id) {
 export async function createPost(post) {
     return await client.from('posts').insert(post);
 }
+export async function addUser(email) {
+    const newUser = {
+        name: "User hasn't given name",
+        email: email,
+        bio: "User hasn't written bio"
+    };
+    await client.from('profiles').insert(newUser);
+}
+
+export async function getProfiles() {
+    const profiles = await client.from('profiles').select('*');
+    return profiles.data;
+}
+
+export async function getProfile(id) {
+    const newProfile = await client.from('profiles').select('*').match({ id }).single();
+    return newProfile;
+}
+
+export async function saveProfile(profile) {
+    await client.from('profiles').upsert(profile);
+}
 
 export async function deletePost(id) {
 
