@@ -1,5 +1,5 @@
 import { getProfiles } from '../fetch-utils.js';
-import { renderProfile} from '../render-utils.js';
+import { renderProfile } from '../render-utils.js';
 
 async function showProfiles() {
     const profilesEl = document.querySelector('#profiles');
