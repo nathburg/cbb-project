@@ -16,6 +16,10 @@ export function renderPosts(posts) {
     const fragment = document.createDocumentFragment();
 
     for (const post of posts) {
+        const linkEl = document.createElement('a');
+        linkEl.href = `/post/?id=${post.id}`;
+        console.log(linkEl.href);
+        
         const li = document.createElement('li');
         li.classList.add('post-it');
 
@@ -34,9 +38,11 @@ export function renderPosts(posts) {
         const contactEl = document.createElement('p');
         contactEl.textContent = post.contact;
 
+        linkEl.append(li);
+
         li.append(titleEl, categoryEl, descriptionEl, contactEl);
 
-        fragment.append(li);
+        fragment.append(linkEl);
     }
 
     return fragment;
@@ -59,4 +65,22 @@ export function renderProfile(profile) {
     profileEl.append(nameEl, emailEl, bioEl);
 
     return profileEl;
+
+export function renderPost(post) {
+    const postEl = document.createElement('div');
+    const titleEl = document.createElement('h1');
+    const categoryEmojiEl = document.createElement('div');
+    const categoryNameEl = document.createElement('span');
+    const descriptionEl = document.createElement('p');
+    const contactEl = document.createElement('div');
+
+    titleEl.textContent = post.title;
+    categoryEmojiEl.textContent = post.category.emoji;
+    categoryNameEl.textContent = post.category.name;
+    descriptionEl.textContent = post.description;
+    contactEl.textContent = post.contact;
+
+    postEl.append(titleEl, categoryEmojiEl, categoryNameEl, descriptionEl, contactEl);
+
+    return postEl;
 }
